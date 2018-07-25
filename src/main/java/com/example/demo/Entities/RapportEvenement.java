@@ -1,4 +1,4 @@
-package com.example.entities;
+package com.example.demo.Entities;
 
 
 import java.io.Serializable;
@@ -25,24 +25,24 @@ public class RapportEvenement implements Serializable{
 	
 	private Boolean isClosed;
 	
-	@ManyToOne
-	private Site site;
-	
-	public Site getSite() {
-		return site;
-	}
+//	@ManyToOne
+//	private Site site;
+//	
+//	public Site getSite() {
+//		return site;
+//	}
+//
+//	public void setSite(Site site) {
+//		this.site = site;
+//	}
 
-	public void setSite(Site site) {
-		this.site = site;
-	}
 
-
-	@ManyToOne
-	private Evenement evenement;
-	
-	@OneToMany(mappedBy = "rapportEvenement", cascade = CascadeType.ALL)
-    private List<ReponseQuestion> reponseQuestions;
-
+//	@ManyToOne
+//	private Evenement evenement;
+//	
+//	@OneToMany(mappedBy = "rapportEvenement", cascade = CascadeType.ALL)
+//    private List<ReponseQuestion> reponseQuestions;
+//
 
 
 	
@@ -59,22 +59,22 @@ public class RapportEvenement implements Serializable{
 	}
 
 	
-	public Evenement getEvenement() {
-		return evenement;
-	}
-
-	public void setEvenement(Evenement evenement) {
-		this.evenement = evenement;
-	}
-
-	@JsonIgnore
-	public List<ReponseQuestion> getReponseQuestions() {
-		return reponseQuestions;
-	}
-
-	public void setReponseQuestions(List<ReponseQuestion> reponseQuestions) {
-		this.reponseQuestions = reponseQuestions;
-	}
+//	public Evenement getEvenement() {
+//		return evenement;
+//	}
+//
+//	public void setEvenement(Evenement evenement) {
+//		this.evenement = evenement;
+//	}
+//
+//	@JsonIgnore
+//	public List<ReponseQuestion> getReponseQuestions() {
+//		return reponseQuestions;
+//	}
+//
+//	public void setReponseQuestions(List<ReponseQuestion> reponseQuestions) {
+//		this.reponseQuestions = reponseQuestions;
+//	}
 
 	public Boolean getIsClosed() {
 		return isClosed;

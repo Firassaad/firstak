@@ -1,4 +1,4 @@
-package com.example.entities;
+package com.example.demo.Entities;
 
 import java.io.Serializable;
 import java.util.List;
@@ -34,9 +34,9 @@ public class ReponseQuestion implements Serializable {
 //	@ManyToOne
 //	private Question question;
 //	
-	@ManyToOne
-	private RapportEvenement rapportEvenement;
-	
+//	@ManyToOne
+//	private RapportEvenement rapportEvenement;
+//	
 
 	public Long getId() {
 		return id;
@@ -63,13 +63,13 @@ public class ReponseQuestion implements Serializable {
 //	}
 
 	
-	public RapportEvenement getRapportEvenement() {
-		return rapportEvenement;
-	}
-
-	public void setRapportEvenement(RapportEvenement rapportEvenement) {
-		this.rapportEvenement = rapportEvenement;
-	}
+//	public RapportEvenement getRapportEvenement() {
+//		return rapportEvenement;
+//	}
+//
+//	public void setRapportEvenement(RapportEvenement rapportEvenement) {
+//		this.rapportEvenement = rapportEvenement;
+//	}
 
 //	public Question getQuestion() {
 //		return question;

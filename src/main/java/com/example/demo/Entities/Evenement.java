@@ -1,4 +1,4 @@
-package com.example.entities;
+package com.example.demo.Entities;
 
 
 
@@ -28,6 +28,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="Evenement")
 public class Evenement implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -73,13 +78,13 @@ public class Evenement implements Serializable{
 //    private List<GroupeQuestion> groupeQuestions;
 //
 // 
-    @OneToMany(mappedBy = "evenement", cascade = CascadeType.ALL)
-    private List<RapportEvenement> rapportEvenements;
+//    @OneToMany(mappedBy = "evenement", cascade = CascadeType.ALL)
+//    private List<RapportEvenement> rapportEvenements;
 
 
-    @ManyToOne
-    private Site site; 
-    
+//    @ManyToOne
+//    private Site site; 
+//    
 	public Long getId() {
 		return id;
 	}
@@ -188,14 +193,14 @@ public class Evenement implements Serializable{
 //	}
 //	
 
-	@JsonIgnore
-	public List<RapportEvenement> getRapportEvenements() {
-		return rapportEvenements;
-	}
-
-	public void setRapportEvenements(List<RapportEvenement> rapportEvenements) {
-		this.rapportEvenements = rapportEvenements;
-	}
+//	@JsonIgnore
+//	public List<RapportEvenement> getRapportEvenements() {
+//		return rapportEvenements;
+//	}
+//
+//	public void setRapportEvenements(List<RapportEvenement> rapportEvenements) {
+//		this.rapportEvenements = rapportEvenements;
+//	}
 
 	public String getType() {
 		return type;

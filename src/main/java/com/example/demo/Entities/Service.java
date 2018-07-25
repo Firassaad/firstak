@@ -1,11 +1,11 @@
-package com.example.entities;
+package com.example.demo.Entities;
 
 
 
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
-import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -54,9 +54,9 @@ public class Service implements Serializable{
 	}
 */
 	
-	public Planning getPlanning() {
-		return planning;
-	}
+//	public Planning getPlanning() {
+//		return planning;
+//	}
 
 	public Date getDebutService() {
 		return debutService;
@@ -73,10 +73,10 @@ public class Service implements Serializable{
 	public void setFinService(Date finService) {
 		this.finService = finService;
 	}
-
-	public void setPlanning(Planning planning) {
-		this.planning = planning;
-	}
+//
+//	public void setPlanning(Planning planning) {
+//		this.planning = planning;
+//	}
 
 	
 	
