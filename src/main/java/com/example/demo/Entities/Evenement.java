@@ -78,13 +78,14 @@ public class Evenement implements Serializable{
 //    private List<GroupeQuestion> groupeQuestions;
 //
 // 
-//    @OneToMany(mappedBy = "evenement", cascade = CascadeType.ALL)
-//    private List<RapportEvenement> rapportEvenements;
 
 
 //    @ManyToOne
 //    private Site site; 
 //    
+	 @OneToMany(mappedBy = "evenement", cascade = CascadeType.ALL)
+	    private List<RapportEvenement> rapportEvenements;
+
 	public Long getId() {
 		return id;
 	}
@@ -193,14 +194,14 @@ public class Evenement implements Serializable{
 //	}
 //	
 
-//	@JsonIgnore
-//	public List<RapportEvenement> getRapportEvenements() {
-//		return rapportEvenements;
-//	}
-//
-//	public void setRapportEvenements(List<RapportEvenement> rapportEvenements) {
-//		this.rapportEvenements = rapportEvenements;
-//	}
+	@JsonIgnore
+	public List<RapportEvenement> getRapportEvenements() {
+		return rapportEvenements;
+	}
+
+	public void setRapportEvenements(List<RapportEvenement> rapportEvenements) {
+		this.rapportEvenements = rapportEvenements;
+	}
 
 	public String getType() {
 		return type;

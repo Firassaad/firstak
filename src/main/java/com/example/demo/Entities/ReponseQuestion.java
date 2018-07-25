@@ -34,10 +34,10 @@ public class ReponseQuestion implements Serializable {
 //	@ManyToOne
 //	private Question question;
 //	
-//	@ManyToOne
-//	private RapportEvenement rapportEvenement;
-//	
 
+	@ManyToOne
+	private RapportEvenement rapportEvenement;
+	
 	public Long getId() {
 		return id;
 	}

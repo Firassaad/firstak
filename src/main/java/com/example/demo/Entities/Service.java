@@ -5,7 +5,7 @@ package com.example.demo.Entities;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
-
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,6 +32,21 @@ public class Service implements Serializable{
 	
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date finService;
+
+//	  @ManyToMany(mappedBy = "services")
+//	    public List<Agent> agents;
+//	
+	  
+	 @ManyToMany(mappedBy = "services")
+	    private List<Agent> agents ;
+
+	public Planning getPlanning() {
+		return planning;
+	}
+
+	public void setPlanning(Planning planning) {
+		this.planning = planning;
+	}
 
 	@ManyToOne
 	private Planning planning;

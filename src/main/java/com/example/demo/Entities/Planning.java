@@ -22,10 +22,10 @@ public class Planning implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-//	@OneToOne(fetch=FetchType.LAZY)
-//	@JoinColumn(name="SITE_ID")
-//	private Site site;
-//	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="SITE_ID")
+	private Site site;
+	
 	@OneToMany(mappedBy = "planning")
     private List<Service> services;
 

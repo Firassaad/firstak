@@ -25,24 +25,25 @@ public class RapportEvenement implements Serializable{
 	
 	private Boolean isClosed;
 	
-//	@ManyToOne
-//	private Site site;
-//	
-//	public Site getSite() {
-//		return site;
-//	}
-//
-//	public void setSite(Site site) {
-//		this.site = site;
-//	}
+	@ManyToOne
+	private Site site;
+	
+	public Site getSite() {
+		return site;
+	}
+
+	public void setSite(Site site) {
+		this.site = site;
+	}
 
 
-//	@ManyToOne
-//	private Evenement evenement;
-//	
-//	@OneToMany(mappedBy = "rapportEvenement", cascade = CascadeType.ALL)
-//    private List<ReponseQuestion> reponseQuestions;
-//
+	@ManyToOne
+	private Evenement evenement;
+
+	
+	@OneToMany(mappedBy = "rapportEvenement", cascade = CascadeType.ALL)
+    private List<ReponseQuestion> reponseQuestions;
+
 
 
 	
