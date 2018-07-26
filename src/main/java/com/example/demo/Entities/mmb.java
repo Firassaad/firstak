@@ -1,5 +1,6 @@
 package com.example.demo.Entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -7,4 +8,6 @@ import javax.persistence.Id;
 public class mmb {
 @Id
 long x;
+@Column
+long y;
 }
