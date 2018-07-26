@@ -2,8 +2,6 @@ package com.example.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,38 +11,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Entities.Agent;
-import com.example.demo.repositry.AgentRepository;
+import com.example.demo.Entities.Service;
+import com.example.demo.repositry.ServiceRepository;
 
 @RestController
-@RequestMapping("/agent")
+@RequestMapping("/service")
 @CrossOrigin("*")
-public class AgentController {
-
+public class ServiceController {
+	
 	@Autowired
-	AgentRepository agentRepository;
+	ServiceRepository serviceRepository;
+	
 	
 	@PostMapping("/save")
-	public Agent add(@RequestBody Agent agent) {
-		return agentRepository.save(agent);
+	public Service add(@RequestBody Service service) {
+		return serviceRepository.save(service);
 	}
-	
-	@GetMapping("/getAllAgent")
-	public List<Agent> getUser() {
-		return agentRepository.findAll();
+
+	@GetMapping("/getAllService")
+	public List<Service> getAllService() {
+		return serviceRepository.findAll();
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public void delete(Agent u) {
-		agentRepository.delete(u);
+	public void delete(Service u) {
+		serviceRepository.delete(u);
 
 	}
-	@DeleteMapping("/deleteSome")
-	public void deleteSomeUser(@Valid @RequestBody List<Agent> l) {
-		for (int i =0 ; i < l.size(); i++) {
-			agentRepository.deleteById(l.get(i).getId());
-		}
-		// return l;
 
-	}
+
 }
