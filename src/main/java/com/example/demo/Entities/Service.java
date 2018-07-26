@@ -48,6 +48,26 @@ public class Service implements Serializable{
 	@ManyToOne
 	private Planning planning;
 	
+	
+	@ManyToOne
+	private Utilisateur utilisateur;
+	
+	public List<Agent> getAgents() {
+		return agents;
+	}
+
+	public void setAgents(List<Agent> agents) {
+		this.agents = agents;
+	}
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
 	public Long getId() {
 		return id;
 	}

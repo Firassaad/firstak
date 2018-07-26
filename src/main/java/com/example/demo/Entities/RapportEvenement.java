@@ -59,6 +59,8 @@ public class RapportEvenement implements Serializable{
 		this.id = id;
 	}
 
+	@ManyToOne
+	private Utilisateur utilisateur;
 	
 //	public Evenement getEvenement() {
 //		return evenement;

@@ -25,15 +25,16 @@ public class ReponseQuestion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Lob @Column(name="CONTENT", length=1024)
+	@Lob
+	@Column(name="CONTENT", length=1024)
 	private String reponse;
 	
-//	@ManyToOne
-//	private GroupeQuestion groupeQuestion;
-//	
-//	@ManyToOne
-//	private Question question;
-//	
+	@ManyToOne
+	private Utilisateur cloturerPar;
+	
+	@ManyToOne
+	private Question question;
+	
 
 	@ManyToOne
 	private RapportEvenement rapportEvenement;
