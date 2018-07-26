@@ -33,9 +33,6 @@ public class Service implements Serializable{
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date finService;
 
-//	  @ManyToMany(mappedBy = "services")
-//	    public List<Agent> agents;
-//	
 	  
 	 @ManyToMany(mappedBy = "services")
 	    private List<Agent> agents ;
