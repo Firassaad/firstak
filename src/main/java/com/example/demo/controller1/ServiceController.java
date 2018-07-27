@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.demo.controller1;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entities.Service;
-import com.example.demo.repositry.ServiceRepository;
+import com.example.demo.repository1.ServiceRepository;
 
 @RestController
 @RequestMapping("/service")

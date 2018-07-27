@@ -1,4 +1,4 @@
-package com.example.demo.repositry;
+package com.example.demo.repository1;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

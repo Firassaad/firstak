@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.demo.controller1;
 
 import java.util.List;
 
@@ -14,11 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entities.Agent;
-import com.example.demo.repositry.AgentRepository;
+import com.example.demo.repository1.AgentRepository;
 
 @RestController
 @RequestMapping("/agent")
-@CrossOrigin("*")
 public class AgentController {
 
 	@Autowired
