@@ -18,14 +18,14 @@ import com.example.demo.Entities.Agent;
 import com.example.demo.Entities.Planning;
 import com.example.demo.Entities.Service;
 import com.example.demo.Entities.Site;
-import com.example.demo.repository.Agentrepository;
+import com.example.demo.repository.AgentRepository;
 import com.example.demo.repository.SiteRepository;
 
 @CrossOrigin("*")
 @RestController
 public class AgentController {
 	@Autowired
-	Agentrepository r;
+	AgentRepository r;
 	@Autowired
 	SiteRepository site;
 

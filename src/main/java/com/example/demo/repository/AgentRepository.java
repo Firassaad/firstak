@@ -6,6 +6,6 @@ import org.springframework.data.repository.query.Param;
 
 import com.example.demo.Entities.Agent;
 
-public interface Agentrepository extends JpaRepository<Agent,Long> {
+public interface AgentRepository extends JpaRepository<Agent,Long> {
 
 }
