@@ -21,7 +21,7 @@ public class Planning implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="SITE_ID")
 	private Site site;
