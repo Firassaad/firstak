@@ -5,12 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 @Entity
 public class Site {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-
+@OneToOne
+private Planning planning;
 	public Long getId() {
 		return id;
 	}
@@ -28,6 +30,14 @@ public class Site {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public Planning getPlanning() {
+		return planning;
+	}
+
+	public void setPlanning(Planning planning) {
+		this.planning = planning;
 	}
 	
 	

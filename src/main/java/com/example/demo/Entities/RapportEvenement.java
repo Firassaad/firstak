@@ -14,10 +14,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class RapportEvenement implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -62,22 +66,6 @@ public class RapportEvenement implements Serializable{
 	@ManyToOne
 	private Utilisateur utilisateur;
 	
-//	public Evenement getEvenement() {
-//		return evenement;
-//	}
-//
-//	public void setEvenement(Evenement evenement) {
-//		this.evenement = evenement;
-//	}
-//
-//	@JsonIgnore
-//	public List<ReponseQuestion> getReponseQuestions() {
-//		return reponseQuestions;
-//	}
-//
-//	public void setReponseQuestions(List<ReponseQuestion> reponseQuestions) {
-//		this.reponseQuestions = reponseQuestions;
-//	}
 
 	public Boolean getIsClosed() {
 		return isClosed;

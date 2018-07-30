@@ -21,6 +21,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 public class ReponseQuestion implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -32,6 +37,7 @@ public class ReponseQuestion implements Serializable {
 	@ManyToOne
 	private Utilisateur cloturerPar;
 	
+
 	@ManyToOne
 	private Question question;
 	
@@ -54,32 +60,6 @@ public class ReponseQuestion implements Serializable {
 	public void setReponse(String reponse) {
 		this.reponse = reponse;
 	}
-
-//	public GroupeQuestion getGroupeQuestion() {
-//		return groupeQuestion;
-//	}
-//
-//	public void setGroupeQuestion(GroupeQuestion groupeQuestion) {
-//		this.groupeQuestion = groupeQuestion;
-//	}
-
-	
-//	public RapportEvenement getRapportEvenement() {
-//		return rapportEvenement;
-//	}
-//
-//	public void setRapportEvenement(RapportEvenement rapportEvenement) {
-//		this.rapportEvenement = rapportEvenement;
-//	}
-
-//	public Question getQuestion() {
-//		return question;
-//	}
-//
-//	public void setQuestion(Question question) {
-//		this.question = question;
-//	}
-
 
 
 

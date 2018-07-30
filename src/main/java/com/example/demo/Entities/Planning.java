@@ -18,10 +18,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Planning implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="SITE_ID")
 	private Site site;
