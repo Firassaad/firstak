@@ -34,17 +34,36 @@ public class ReponseQuestion implements Serializable {
 	@Column(name="CONTENT", length=1024)
 	private String reponse;
 	
-	@ManyToOne
-	private Utilisateur cloturerPar;
-	
+//	@ManyToOne
+//	private Utilisateur cloturerPar;       =>remplacé par agent dans la conception
+//	
 
+	@ManyToOne
+	private Agent agent;
+	
 	@ManyToOne
 	private Question question;
 	
 
-	@ManyToOne
-	private RapportEvenement rapportEvenement;
-	
+public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+	//	@ManyToOne
+//	private RapportEvenement rapportEvenement;
+//	
 	public Long getId() {
 		return id;
 	}

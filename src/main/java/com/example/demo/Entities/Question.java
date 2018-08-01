@@ -47,7 +47,8 @@ public class Question {
 	
 	@Column(name="groupQuestion")
 	private String groupQuestion ;
-	
+	@ManyToOne
+	private GroupeQuestion groupeQuestion;
 
 	@OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
     private List<ReponseQuestion> reponseQuestions; 

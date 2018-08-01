@@ -16,10 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entities.Agent;
 import com.example.demo.Entities.Planning;
+import com.example.demo.Entities.ReponseQuestion;
 import com.example.demo.Entities.Service;
 import com.example.demo.Entities.Site;
 import com.example.demo.repository.AgentRepository;
+import com.example.demo.repository.ReponseQuestionRepository;
 import com.example.demo.repository.SiteRepository;
+
+import net.bytebuddy.asm.Advice.Return;
 
 @CrossOrigin("*")
 @RestController
@@ -28,6 +32,12 @@ public class AgentController {
 	AgentRepository r;
 	@Autowired
 	SiteRepository site;
+	@Autowired 
+	ReponseQuestionRepository reponseQuestionRepository;
+	
+	
+	private List<Agent> l1;
+	private List<Agent> l12;
 
 	@GetMapping("/agent/afficher/{id}")
 
@@ -75,15 +85,38 @@ public class AgentController {
 
 	}
 
-	public List<Agent> getListAgentBySiteId(Long site_id) {
+	@GetMapping("/agent/afficher1/{id}")
+	public List<Agent> getListAgentBySiteId(@PathVariable(value = "id") Long site_id) {
 		List<Site> l = site.findAll();
 		List<Agent> l3 = null;
-		for (int i = 0; i <= l.size(); i++) {
+		for (int i = 0; i < l.size(); i++) {
 			if (l.get(i).getId() == site_id)
 				l3 = l.get(i).getPlanning().getServices().get(i).getAgents();
 
 		}
 		return l3;
+	}
+
+	@GetMapping("/agent/chercher/{nom}")
+	public List<Agent> chercher(@PathVariable(value = "nom") String nom) {
+		List<Agent> l = r.findAll();
+		l12 = null;
+		for (int i = 0; i < l.size(); i++) {
+			if (l.get(i).getNom() == nom)
+				l12.add(l.get(i));
+		}
+		return l12;
+
+	}
+
+	@GetMapping("/agent/getListReponses/{id}")
+	public List<ReponseQuestion> getListReponseByAgentId(@PathVariable(value="id") Long agent_id){
+		List<ReponseQuestion> lrq = reponseQuestionRepository.findAll();
+		List<ReponseQuestion> lu = null; 
+		for(int i=0 ; i<lrq.size() ; i++)
+			if(lrq.get(i).getAgent().getId()==agent_id)
+		    lu = (List<ReponseQuestion>) lrq.get(i);
+		return lu;		
 	}
 
 }

@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Agent implements Serializable {
 	/**
@@ -43,7 +45,7 @@ public class Agent implements Serializable {
 	        name = "agent_service"	    )
 	    List<Service> services;
 	    
-	
+	@JsonIgnore
 	public Long getId() {
 		return id;
 	}

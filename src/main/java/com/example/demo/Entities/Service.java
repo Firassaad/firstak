@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Service implements Serializable{
@@ -38,7 +39,7 @@ public class Service implements Serializable{
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date finService;
 
-	  
+	@JsonIgnore
 	 @ManyToMany(mappedBy = "services")
 	    private List<Agent> agents ;
 
@@ -54,9 +55,9 @@ public class Service implements Serializable{
 	private Planning planning;
 	
 	
-	@ManyToOne
-	private Utilisateur utilisateur;
-	
+//	@ManyToOne
+//	private Utilisateur utilisateur;
+//	
 	public List<Agent> getAgents() {
 		return agents;
 	}
@@ -65,13 +66,13 @@ public class Service implements Serializable{
 		this.agents = agents;
 	}
 
-	public Utilisateur getUtilisateur() {
-		return utilisateur;
-	}
-
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
-	}
+//	public Utilisateur getUtilisateur() {
+//		return utilisateur;
+//	}
+//
+//	public void setUtilisateur(Utilisateur utilisateur) {
+//		this.utilisateur = utilisateur;
+//	}
 
 	public Long getId() {
 		return id;
