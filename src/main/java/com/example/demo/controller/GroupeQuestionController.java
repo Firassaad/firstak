@@ -29,5 +29,9 @@ public class GroupeQuestionController {
 		}
 		return lq;
 	}
+	@GetMapping("/groupequestion/getAll")
+	public List<GroupeQuestion> getAllGroupeQuestion(){
+		return groupeQuestionRepository.findAll();
+	}
 
 }

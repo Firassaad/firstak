@@ -18,6 +18,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="Question")
 public class Question {
+	
+	
+	
+	
+	public Question() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
