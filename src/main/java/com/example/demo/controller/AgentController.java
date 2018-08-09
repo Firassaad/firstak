@@ -39,9 +39,9 @@ public class AgentController {
 	private List<Agent> l1;
 	private List<Agent> l12;
 
-	@GetMapping("/agent/afficher/{id}")
+	@GetMapping("/agent/afficher/site")
 
-	public List<Agent> afficheragent(@PathVariable(value = "id") Long id) {
+	public List<Agent> afficheragent( Long id) {
 		int i, j;
 		List<Agent> a = new ArrayList<>();
 		Site s = site.affliste(id);
@@ -54,10 +54,18 @@ public class AgentController {
 		}
 		return a;
 	}
+	@GetMapping("/agent/getAgentById")
+	public Agent getAgentById(Long id ) {
+		return r.findAgentById(id);
+	}
 
-	@GetMapping("/agent/affichersites")
+	@GetMapping("/site/affichersites")
 	public List<Site> affichersite() {
 		return site.findAll();
+	}
+	@GetMapping("/agent/getAllAgent")
+	public List<Agent>getallAgent(){
+		return r.findAll();
 	}
 
 	@PostMapping("/save")
@@ -97,9 +105,11 @@ public class AgentController {
 		return l3;
 	}
 
-	@GetMapping("/agent/chercher/{nom}")
-	public List<Agent> chercher(@PathVariable(value = "nom") String nom) {
-		List<Agent> l = r.findAll();
+	@GetMapping("/agent/chercher")
+//	public List<Agent> chercher(@PathVariable(value = "nom") String nom) {
+	public List<Agent> chercher(String nom) {
+
+	List<Agent> l = r.findAll();
 		l12 = null;
 		for (int i = 0; i < l.size(); i++) {
 			if (l.get(i).getNom() == nom)

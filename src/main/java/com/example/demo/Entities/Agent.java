@@ -39,13 +39,13 @@ public class Agent implements Serializable {
 //	
 	
 	
-	
+	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL })
 	    @JoinTable(
 	        name = "agent_service"	    )
 	    List<Service> services;
 	    
-	@JsonIgnore
+	
 	public Long getId() {
 		return id;
 	}
