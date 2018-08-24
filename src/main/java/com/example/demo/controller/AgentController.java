@@ -20,13 +20,21 @@ import com.example.demo.Entities.Groupquestion;
 import com.example.demo.Entities.Planning;
 import com.example.demo.Entities.Question;
 import com.example.demo.Entities.Questionqcm;
+import com.example.demo.Entities.ReponseQuestion;
+
 import com.example.demo.Entities.Service;
 import com.example.demo.Entities.Site;
 import com.example.demo.repository.AgentRepository;
+
 import com.example.demo.repository.ExamenRepository;
 import com.example.demo.repository.GroupquestionRepository;
 import com.example.demo.repository.QuestionRepository;
+
+import com.example.demo.repository.ReponseQuestionRepository;
+
 import com.example.demo.repository.SiteRepository;
+
+import net.bytebuddy.asm.Advice.Return;
 
 @CrossOrigin("*")
 @RestController
@@ -38,14 +46,23 @@ public class AgentController {
 	ExamenRepository examen;
 	@Autowired
 	SiteRepository site;
+
 	@Autowired
 	QuestionRepository question;
 	@Autowired
 	 GroupquestionRepository g;
+	@Autowired 
+	ReponseQuestionRepository reponseQuestionRepository;
+	
+	
+	private List<Agent> l1;
+	private List<Agent> l12;
 
-	@GetMapping("/agent/afficher/{id}")
+	@GetMapping("/agent/afficher/site")
 
-	public List<Agent> afficheListAgentBySiteId(@PathVariable(value = "id") Long id) {
+	//public List<Agent> afficheListAgentBySiteId(@PathVariable(value = "id") Long id) {
+
+	public List<Agent> afficheragent( Long id) {
 		int i, j;
 		List<Agent> a = new ArrayList<>();
 		Site s = site.affliste(id);
@@ -57,6 +74,10 @@ public class AgentController {
 			}
 		}
 		return a;
+	}
+	@GetMapping("/agent/getAgentById")
+	public Agent getAgentById(Long id ) {
+		return r.findAgentById(id);
 	}
 
 	@GetMapping("/agent/recherche/{nom}/{id}")
@@ -84,9 +105,15 @@ public class AgentController {
 
 	
 
-	@GetMapping("/agent/affichersites")
+	
+	@GetMapping("/site/affichersites")
+
 	public List<Site> affichersite() {
 		return site.findAll();
+	}
+	@GetMapping("/agent/getAllAgent")
+	public List<Agent>getallAgent(){
+		return r.findAll();
 	}
 
 	@PostMapping("/save")
@@ -114,10 +141,11 @@ public class AgentController {
 
 	}
 
-	public List<Agent> getListAgentBySiteId(Long site_id) {
+	@GetMapping("/agent/afficher/{id}")
+	public List<Agent> getListAgentBySiteId(@PathVariable(value = "id") Long site_id) {
 		List<Site> l = site.findAll();
 		List<Agent> l3 = null;
-		for (int i = 0; i <= l.size(); i++) {
+		for (int i = 0; i < l.size(); i++) {
 			if (l.get(i).getId() == site_id)
 				l3 = l.get(i).getPlanning().getServices().get(i).getAgents();
 
@@ -164,6 +192,7 @@ public class AgentController {
 		}
 	@GetMapping("/agent/afficherdetail/{id}")
 
+
 	public Agent affichedetailagent(@PathVariable(value = "id") Long id) 
 		{
 		return r.affdetail(id);
@@ -178,4 +207,30 @@ public class AgentController {
 	{
 		return examen.affqcm(id);
 	}
+
+	@GetMapping("/agent/chercher")
+//	public List<Agent> chercher(@PathVariable(value = "nom") String nom) {
+	public List<Agent> chercher(String nom) {
+
+	List<Agent> l = r.findAll();
+		l12 = null;
+		for (int i = 0; i < l.size(); i++) {
+			if (l.get(i).getNom() == nom)
+				l12.add(l.get(i));
+		}
+		return l12;
+
+	}
+
+	@GetMapping("/agent/getListReponses/{id}")
+	public List<ReponseQuestion> getListReponseByAgentId(@PathVariable(value="id") Long agent_id){
+		List<ReponseQuestion> lrq = reponseQuestionRepository.findAll();
+		List<ReponseQuestion> lu = null; 
+		for(int i=0 ; i<lrq.size() ; i++)
+			if(lrq.get(i).getAgent().getId()==agent_id)
+		    lu = (List<ReponseQuestion>) lrq.get(i);
+		return lu;		
+	}
+
+
 }

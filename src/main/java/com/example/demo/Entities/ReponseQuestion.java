@@ -12,15 +12,24 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
- 
 @Entity
 public class ReponseQuestion implements Serializable {
-	
+
+	public ReponseQuestion(String reponse, Question question) {
+		super();
+		this.reponse = reponse;
+		this.question = question;
+	}
+
+	public ReponseQuestion() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * 
 	 */
@@ -29,22 +38,43 @@ public class ReponseQuestion implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Lob
-	@Column(name="CONTENT", length=1024)
+	@Column(name = "CONTENT", length = 1024)
 	private String reponse;
-	
-	@ManyToOne
-	private Utilisateur cloturerPar;
-	
 
 	@ManyToOne
 	private Question question;
 	
+	
+	// @ManyToOne
+	// private Utilisateur cloturerPar; =>remplacé par agent dans la conception
+	//
 
 	@ManyToOne
-	private RapportEvenement rapportEvenement;
-	
+	private Agent agent;
+
+
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+	// @ManyToOne
+	// private RapportEvenement rapportEvenement;
+	//
 	public Long getId() {
 		return id;
 	}
@@ -60,10 +90,5 @@ public class ReponseQuestion implements Serializable {
 	public void setReponse(String reponse) {
 		this.reponse = reponse;
 	}
-
-
-
-	
-	
 
 }
