@@ -13,8 +13,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Agent implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -32,7 +39,7 @@ public class Agent implements Serializable {
 //	
 	
 	
-	
+	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL })
 	    @JoinTable(
 	        name = "agent_service"	    )
@@ -63,6 +70,12 @@ public class Agent implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public List<Service> getServices() {
+		return services;
+	}
+	public void setServices(List<Service> services) {
+		this.services = services;
 	}
 
 	

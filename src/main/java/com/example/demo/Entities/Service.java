@@ -16,9 +16,15 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Service implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,6 +41,7 @@ public class Service implements Serializable{
 
 	  
 	 @ManyToMany(mappedBy = "services")
+	 @JsonIgnore
 	    private List<Agent> agents ;
 
 	public Planning getPlanning() {

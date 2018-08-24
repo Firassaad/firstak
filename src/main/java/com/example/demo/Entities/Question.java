@@ -26,6 +26,14 @@ public class Question {
 	@Column(name="nomQuestion")
 	private String nomQuestion;
 	
+	public String getGroupQuestion() {
+		return groupQuestion;
+	}
+
+	public void setGroupQuestion(String groupQuestion) {
+		this.groupQuestion = groupQuestion;
+	}
+
 	@Column(name="typeReponse")
 	private String typeReponse;
 	
@@ -41,6 +49,16 @@ public class Question {
 	@Column(name="orderQ")
 	private Integer orderQ;
 	
+	@ManyToOne
+	private Groupquestion q;
+	public Groupquestion getQ() {
+		return q;
+	}
+
+	public void setQ(Groupquestion q) {
+		this.q = q;
+	}
+
 	//Text Informatif
 	@Column(name="libelle")
 	private String libelle ;
