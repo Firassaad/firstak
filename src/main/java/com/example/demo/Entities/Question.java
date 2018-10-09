@@ -43,14 +43,7 @@ public class Question {
 		this.groupQuestion = groupQuestion;
 	}
 
-	@Column(name="typeReponse")
-	private String typeReponse;
-	
-	@Column(name="obligatoire")
-	private boolean obligatoire;
-	
-	@Column(name="votreListe")
-	private String votreListe;
+
 	
 	@Column(name="menuDeroulantExistant")
 	private String menuDeroulantExistant;
@@ -96,29 +89,7 @@ public class Question {
 		this.nomQuestion = nomQuestion;
 	}
 
-	public String getTypeReponse() {
-		return typeReponse;
-	}
 
-	public void setTypeReponse(String typeReponse) {
-		this.typeReponse = typeReponse;
-	}
-
-	public boolean isObligatoire() {
-		return obligatoire;
-	}
-
-	public void setObligatoire(boolean obligatoire) {
-		this.obligatoire = obligatoire;
-	}
-
-	public String getVotreListe() {
-		return votreListe;
-	}
-
-	public void setVotreListe(String votreListe) {
-		this.votreListe = votreListe;
-	}
 
 
 	public String getMenuDeroulantExistant() {
